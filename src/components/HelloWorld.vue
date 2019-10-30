@@ -7,10 +7,14 @@
 
     <button @click="addHandle"> + </button>
     <button @click="reduceHandle"> - </button>
+
+    <h3>试验区：{{count1}}</h3>
+    <h3>mapGetters：{{getNum}}</h3>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
   name: 'HelloWorld',
   data() {
@@ -18,16 +22,25 @@ export default {
       // something
     }
   },
+  computed: {
+    ...mapState({ count1: state => state.count }),
+    ...mapGetters(["getNum"])
+  },
   methods: {
-    addHandle() {
-      this.$store.dispatch("addAsync")
-      // this.$store.commit("add")
-    },
-    reduceHandle() {
-      var n = 10
-      this.$store.dispatch("reduceAsync", n)
-      // this.$store.commit("reduce")
-    }
+    ...mapActions({
+      addHandle: 'addAsync',
+      reduceHandle(dispatch, n) {
+        n = 10
+        dispatch('reduceAsync', n)
+      }
+    }),
+    // addHandle() {
+    //   this.addAsync()
+    // },
+    // reduceHandle() {
+    //   var n = 10
+    //   this.reduceAsync(n)
+    // }
   }
 }
 </script>
