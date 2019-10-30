@@ -21,6 +21,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    // 注册actions类似vue里的methods
+    // 接收一个与store实例具有相同方法的context对象
+    addAsync(context) {
+      context.commit("add")
+    },
+    reduceAsync(context) {
+      context.commit("reduce")
+    }
   },
   modules: {
   }

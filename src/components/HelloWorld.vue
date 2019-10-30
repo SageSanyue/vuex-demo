@@ -20,10 +20,12 @@ export default {
   },
   methods: {
     addHandle() {
-      this.$store.commit("add")
+      this.$store.dispatch("addAsync")
+      // this.$store.commit("add")
     },
     reduceHandle() {
-      this.$store.commit("reduce")
+      this.$store.dispatch("reduceAsync")
+      // this.$store.commit("reduce")
     }
   }
 }
