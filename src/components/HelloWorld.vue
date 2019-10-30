@@ -24,7 +24,8 @@ export default {
       // this.$store.commit("add")
     },
     reduceHandle() {
-      this.$store.dispatch("reduceAsync")
+      var n = 10
+      this.$store.dispatch("reduceAsync", n)
       // this.$store.commit("reduce")
     }
   }

@@ -16,8 +16,8 @@ export default new Vuex.Store({
     add(state) {
       state.count += 1
     },
-    reduce(state) {
-      state.count -= 1
+    reduce(state, n) {
+      state.count -= n
     }
   },
   actions: {
@@ -26,8 +26,8 @@ export default new Vuex.Store({
     addAsync(context) {
       context.commit("add")
     },
-    reduceAsync(context) {
-      context.commit("reduce")
+    reduceAsync(context, n) {
+      context.commit("reduce", n)
     }
   },
   modules: {
